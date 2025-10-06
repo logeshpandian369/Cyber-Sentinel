@@ -21,3 +21,37 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv1D, MaxPooling1D, LSTM, Dense, Dropout, Flatten
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.metrics import CategoricalAccuracy
+from tensorflow.keras.utils import to_categorical
+
+# Example input shape: (samples, timesteps, features)
+X_train = np.random.rand(100, 50, 10)  # 100 samples, 50 timesteps, 10 features
+y_train = to_categorical(np.random.randint(0, 3, 100))  # 3 classes
+
+# Define the CNN-LSTM model
+model = Sequential([
+    Conv1D(filters=64, kernel_size=3, activation='relu', input_shape=(50, 10)),
+    MaxPooling1D(pool_size=2),
+    Dropout(0.3),
+    LSTM(100, return_sequences=False),
+    Dense(100, activation='relu'),
+    Dropout(0.3),
+    Dense(3, activation='softmax')  # Assuming 3 output classes
+])
+
+# Compile the model
+opt = Adam(learning_rate=0.001)
+model.compile(
+    optimizer=opt,
+    loss=tf.keras.losses.CategoricalCrossentropy(),
+    metrics=[CategoricalAccuracy()]
+)
+
+# Train the model
+model.fit(X_train, y_train, epochs=10, batch_size=16, validation_split=0.2)
+
