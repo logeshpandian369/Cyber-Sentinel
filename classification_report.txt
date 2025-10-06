@@ -1,0 +1,16 @@
+                precision    recall  f1-score   support
+
+      Analysis       0.31      0.04      0.07       131
+      Backdoor       0.17      0.02      0.03       117
+           DoS       0.41      0.44      0.43       786
+      Exploits       0.67      0.75      0.71      2275
+       Fuzzers       0.73      0.81      0.77      1212
+       Generic       1.00      0.97      0.98      3723
+        Normal       1.00      1.00      1.00      7418
+Reconnaissance       0.95      0.79      0.86       723
+     Shellcode       0.51      0.44      0.47        75
+         Worms       0.00      0.00      0.00         7
+
+      accuracy                           0.89     16467
+     macro avg       0.57      0.53      0.53     16467
+  weighted avg       0.89      0.89      0.89     16467
