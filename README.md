@@ -1,41 +1,77 @@
-Cyber Sentinel - IoT Network Attack Detection and Mailing the Report
+## Cyber Sentinel
 
-Authors:
-- Logesh Gnanavel S
-- Lokesh Kumar P
-- Deepak Kumar V
-- Sabari Giri V
+This project **(<a href="https://doi.org/10.1109/SCIoT62588.2024.10570107">Our Paper</a>)** centers on enhancing the reliability of Internet of Things (IoT) and Industrial Internet of Things (IIoT) networks using machine learning and deep learning techniques. It includes implementing and evaluating deep learning models using two datasets: CoAP-DDoS and Edge-IIoT.
 
-Institution:
-Department of Electronics and Communication Engineering
-Nadar Saraswathi College of Engineering and Technology (Affiliated to Anna University)
+If you use this project, please cite this paper: https://doi.org/10.1109/SCIoT62588.2024.10570107.
 
-Project Overview:
-Cyber Sentinel is a behavior-based intrusion detection system for IoT networks.
-It uses a Random Forest classifier to detect attacks and employs SHAP for explainable AI.
-If an attack is detected, it sends a PDF report and a confusion matrix image to a configured email address.
+## Table of Contents
 
-Files Included:
-1. Cyber_Sentinel_IoT_Attack_Detection_Final.docx – Research paper with full details and results.
-2. mailpdf.py – Python script to load data, train the model, detect anomalies, generate reports, and send email alerts.
-3. Screenshot (156).png to Screenshot (181).png – Visual result images used in the paper.
+- [Introduction](#introduction)
+- [Datasets](#datasets)
+- [CoAP-DoS Dataset](#coap-dos-dataset)
+- [Edge-IIoT Dataset](#edge-iiot-dataset)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-How to Run:
-1. Ensure all dependencies are installed:
-   - pandas
-   - numpy
-   - matplotlib
-   - seaborn
-   - scikit-learn
-   - fpdf
+## Introduction
 
-2. Update your Gmail credentials in `mailpdf.py` for email functionality.
-3. Update the dataset file path in the `file_path` variable within the `mailpdf.py`.
-4. Run the script using the following command:
+In recent years, the proliferation of IoT and IIoT devices has led to an increased risk associated with network traffic in these environments. Machine Learning plays a crucial role in identifying and mitigating such attacks. This project aims to develop effective deep learning models tailored for IoT and IIoT environments.
 
-   python mailpdf.py
+## Datasets
 
-5. If attacks are detected, you’ll receive an email with attached reports.
+The project utilizes two datasets for training and evaluating the DL models:
 
-Note:
-For Gmail SMTP to work, enable "Less secure app access" or use an app-specific password from your Google account.
+- **<a href="https://www.kaggle.com/datasets/jaredalanmathews/coapddos">CoAP-DoS Dataset</a>**: A dataset containing network traffic data related to CoAP-based DDoS attacks. <a href="https://ieeexplore.ieee.org/document/9845285">Original Publication</a>.
+- **<a href="https://www.kaggle.com/datasets/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot">Edge-IIoT Dataset**: A dataset comprising network traffic data from Edge-IIoT environments, including various types of attacks and normal traffic. <a href="https://ieee-dataport.org/documents/edge-iiotset-new-comprehensive-realistic-cyber-security-dataset-iot-and-iiot-applications">Original Publicaiton</a>.
+
+## CoAP-DoS Dataset
+
+### Description
+
+The CoAP-DoS dataset consists of network traffic data captured during CoAP-based DDoS attacks. It includes features such as packet headers, payload information, and timestamps.
+
+### Preprocessing
+
+Preprocessing steps applied to the CoAP-DoS dataset include median filtering, standard deviation-based filtering, and normalization. These steps help clean the data and prepare it for model training.
+
+### Model Architecture
+
+The model architecture for the CoAP-DoS dataset consists of convolutional and recurrent neural network layers. These layers are designed to extract relevant features from the input data and make predictions based on them.
+
+### Training and Evaluation
+
+The model is trained using the training data from the CoAP-DoS dataset and evaluated using the test data. Training involves optimizing the model's parameters using the Adam optimizer and minimizing the sparse categorical cross-entropy loss. The model's performance is evaluated based on accuracy metrics.
+
+## Edge-IIoT Dataset
+
+### Description
+
+The Edge-IIoT dataset comprises network traffic data collected from Edge-IIoT environments, including various types of attacks and normal traffic patterns. It contains features related to network protocols, communication patterns, and attack types.
+
+### Preprocessing
+
+Preprocessing the Edge-IIoT dataset involves encoding categorical features, scaling numerical features, and reshaping the data for model compatibility. These preprocessing steps ensure that the data is in a suitable format for training the model.
+
+### Model Architecture
+
+The DL model architecture for the Edge-IIoT dataset includes convolutional, pooling, and recurrent layers followed by dense layers for classification. This architecture is designed to capture temporal and spatial dependencies in the input data and make accurate predictions.
+
+### Training and Evaluation
+
+The model is trained using the preprocessed training data from the Edge-IIoT dataset and evaluated using the test data. Training involves optimizing the model's parameters using the Adam optimizer and minimizing the categorical cross-entropy loss. Model performance is assessed using accuracy metrics and confusion matrices.
+
+## Usage
+
+To use the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the required dependencies mentioned in the `requirements.txt` file.
+3. Run the provided Jupyter notebooks or Python scripts to train and evaluate the deep learning models.
+4. Experiment with different hyperparameters and architectures to improve model performance.
+
+## License
+
+This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
+
+© 2025 Logesh S
